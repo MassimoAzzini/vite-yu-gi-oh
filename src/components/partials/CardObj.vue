@@ -1,6 +1,11 @@
 <script>
 export default {
   name: 'CardObj',
+  props: {
+    name: String,
+    archetype: String,
+    image: Array,
+  }
   
 }
 </script>
@@ -9,7 +14,11 @@ export default {
 
   <div class="col-2">
     <div class="card">
-    <h1>CardObj</h1>
+      <img src="image.image_url" :alt="name">
+      <div class="description">
+        <div>{{ name }}</div>
+        <div>{{ archetype }}</div>
+      </div>
 
     </div>
   </div>
@@ -21,6 +30,9 @@ export default {
 .card {
   height: 605px;
   background-color: #d48f38;
+  img{
+    width: 100%;
+  }
 }
 
 </style>
