@@ -4,7 +4,7 @@ export default {
   props: {
     name: String,
     archetype: String,
-    image: Array,
+    image: Object,
   }
   
 }
@@ -12,11 +12,11 @@ export default {
 
 <template>
 
-  <div class="col-2">
+  <div class="col-2 mb-3">
     <div class="card">
-      <img :src="image" :alt="name">
+      <img :src="image.image_url" :alt="name">
       <div class="description">
-        <div>{{ name }}</div>
+        <div class="name-card">{{ name }}</div>
         <div>{{ archetype }}</div>
       </div>
 
@@ -28,10 +28,20 @@ export default {
 <style lang="scss" scoped>
 
 .card {
-  height: 605px;
+  height: 450px;
   background-color: #d48f38;
   img{
     width: 100%;
+  }
+  .description {
+    text-align: center;
+    .name-card{
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 40px;
+      margin-top: 20px;
+    }
   }
 }
 
