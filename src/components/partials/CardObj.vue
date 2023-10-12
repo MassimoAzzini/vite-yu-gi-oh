@@ -14,7 +14,7 @@ export default {
 
   <div class="col-2">
     <div class="card">
-      <img src="image.image_url" :alt="name">
+      <img :src="image" :alt="name">
       <div class="description">
         <div>{{ name }}</div>
         <div>{{ archetype }}</div>
