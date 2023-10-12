@@ -13,7 +13,6 @@ export default {
 <template>
 
   <main>
-    <h1>Main</h1>
     <ContainerCards />
     
   </main>
@@ -21,5 +20,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+main{
+  background-color: orange;
+}
 
 </style>
