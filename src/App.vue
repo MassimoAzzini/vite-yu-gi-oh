@@ -5,6 +5,7 @@ import {store} from './data/store';
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
 
+
 export default {
   name: 'App',
   components: {
@@ -13,31 +14,64 @@ export default {
   },
   data() {
     return {
-      store
+      store,
+      numbercards: 10000,
+      archetype: null,
     }
   },
 
   methods: {
     getApi(){
-      axios.get(store.apiUrl)
+      store.isLoad = true
+      axios.get(store.apiUrl, {
+        params: {
+          num: this.numbercards,
+          offset: 0,
+          archetype: store.archetypeToSearch
+        }
+      })
       .then (res => {
+        store.isLoad = false
+
         store.cardsList = res.data.data;
+        // store.cardsList.forEach( cardType => {
+        //     if(!store.archetypeList.includes(cardType.archetype)){
+        //       store.archetypeList.push(cardType.archetype)
+        //     }
+        //   })
+
       })
       .catch (err => {
+        store.isLoad = false
+
         console.log(err);
       })
     },
 
+    getApiSelect(){
+      axios.get(store.apiOptionUrl)
+      .then (res => {
+        store.archetypeList = res.data;
+        console.log(store.archetypeList);
+
+      })
+      .catch (err => {
+        console.log(err);
+      })
+
+    }
+
   },
   mounted() {
     this.getApi()
+    this.getApiSelect()
   },
 }
 
 </script>
 
 <template>
-  <div v-if="store.cardsList.length < 2000"  class="w-100 vh-100">
+  <div v-if="store.isLoad" class="w-100 vh-100">
 
     <img class="loading" src="/public/yugioh_master.jpg" alt="">
 
@@ -45,7 +79,7 @@ export default {
 
   <div v-else>
     <Header />
-    <Main />
+    <Main @startSearch="getApi()" />
   </div>
 
 

@@ -4,7 +4,7 @@ export default {
   props: {
     name: String,
     archetype: String,
-    image: Object,
+    image: String,
   }
   
 }
@@ -14,7 +14,7 @@ export default {
 
   <div class="col-2 mb-3">
     <div class="card">
-      <img :src="image.image_url" :alt="name">
+      <img :src="image" :alt="name">
       <div class="description">
         <div class="name-card">{{ name }}</div>
         <div>{{ archetype }}</div>

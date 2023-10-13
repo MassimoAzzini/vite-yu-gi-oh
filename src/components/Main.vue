@@ -1,11 +1,18 @@
 <script>
 import ContainerCards from './partials/ContainerCards.vue';
+import {store} from '../data/store'
 
 export default {
   name: 'Main',
   components: {
     ContainerCards,
-  }
+  },
+  data() {
+    return {
+      store
+    }
+  },
+
   
 }
 </script>
@@ -18,9 +25,9 @@ export default {
 
         <div class="row">
           <div class="col-2 my-4">
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
+            <select v-model="store.archetypeToSearch" id="inputState" class="form-select">
+              <option selected value=""></option>
+              <option @click="$emit('startSearch')" v-for="(archetype, index) in store.archetypeList" :key="index" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
             </select>
           </div>
         </div>

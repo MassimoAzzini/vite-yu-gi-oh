@@ -16,9 +16,6 @@ export default {
     }
   },
   mounted() {
-    setTimeout (() => {
-      console.log(store.cardsList);
-    }, 2000)
   },
   
 }
@@ -28,7 +25,7 @@ export default {
 
   <div class="container-fluid p-5">
     <div class="row p-3 bg-black">
-      <FoundCard />
+      <ResultFoundCard />
     </div>
     <div class="row">
       <CardObj
@@ -36,7 +33,7 @@ export default {
         :key="card.id"
         :name="card.name"
         :archetype="card.archetype"
-        :image="card.card_images[0]"
+        :image="card.card_images[0].image_url"
       />
 
     </div>
