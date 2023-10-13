@@ -1,11 +1,13 @@
 <script>
 import { store } from '../../data/store'
 import CardObj from './CardObj.vue';
+import ResultFoundCard from './ResultFoundCard.vue';
 
 export default {
   name: 'ContainerCards',
   components: {
     CardObj,
+    ResultFoundCard
   },
 
   data() {
@@ -26,7 +28,7 @@ export default {
 
   <div class="container-fluid p-5">
     <div class="row p-3 bg-black">
-      <span>Found x cards</span>
+      <FoundCard />
     </div>
     <div class="row">
       <CardObj

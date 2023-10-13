@@ -37,15 +37,28 @@ export default {
 </script>
 
 <template>
+  <div v-if="store.cardsList.length < 2000"  class="w-100 vh-100">
 
-  <Header />
-  <Main />
+    <img class="loading" src="/public/yugioh_master.jpg" alt="">
+
+  </div>
+
+  <div v-else>
+    <Header />
+    <Main />
+  </div>
 
 
 </template>
 
 <style lang="scss">
-
 @use './scss/main.scss';
+
+
+img.loading{
+
+  width: 100%;
+
+}
 
 </style>
