@@ -15,8 +15,7 @@ export default {
   data() {
     return {
       store,
-      numbercards: 10000,
-      archetype: null,
+      numbercards: 5000,
     }
   },
 
@@ -27,18 +26,14 @@ export default {
         params: {
           num: this.numbercards,
           offset: 0,
-          archetype: store.archetypeToSearch
+          archetype: store.archetypeToSearch,
+          name: store.nameToSearch,
         }
       })
       .then (res => {
         store.isLoad = false
 
         store.cardsList = res.data.data;
-        // store.cardsList.forEach( cardType => {
-        //     if(!store.archetypeList.includes(cardType.archetype)){
-        //       store.archetypeList.push(cardType.archetype)
-        //     }
-        //   })
 
       })
       .catch (err => {
@@ -79,7 +74,7 @@ export default {
 
   <div v-else>
     <Header />
-    <Main @startSearch="getApi()" />
+    <Main @startSearch="getApi" />
   </div>
 
 

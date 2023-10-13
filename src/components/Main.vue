@@ -24,12 +24,16 @@ export default {
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-2 my-4">
-            <select v-model="store.archetypeToSearch" id="inputState" class="form-select">
+          <div class="col-2 my-3">
+            <select @change="$emit('startSearch')" v-model="store.archetypeToSearch" id="inputState" class="form-select" placeholder="Search Character">
               <option selected value=""></option>
-              <option @click="$emit('startSearch')" v-for="(archetype, index) in store.archetypeList" :key="index" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
+              <option v-for="(archetype, index) in store.archetypeList" :key="index" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
             </select>
           </div>
+          <div class="col-2 my-3">
+            <input v-model="store.nameToSearch" type="text" class="form-control" placeholder="Search Name Cards">
+          </div>
+
         </div>
 
         <ContainerCards />

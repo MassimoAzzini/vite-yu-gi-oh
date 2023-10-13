@@ -5,6 +5,7 @@ export const store = reactive({
   apiOptionUrl: 'https://db.ygoprodeck.com/api/v7/archetypes.php',
   cardsList: [],
   archetypeToSearch: null,
+  nameToSearch: null,
   archetypeList: [],
   isLoad: false
 })
