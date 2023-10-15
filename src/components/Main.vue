@@ -31,7 +31,7 @@ export default {
             </select>
           </div>
           <div class="col-2 my-3">
-            <input v-model="store.nameToSearch" type="text" class="form-control" placeholder="Search Name Cards">
+            <input @keyup.enter="$emit('startSearch')" v-model="store.nameToSearch" type="text" class="form-control" placeholder="Search Name Cards">
           </div>
 
         </div>
@@ -48,6 +48,7 @@ export default {
 
 main{
   background-color: #d48f38;
+  min-height: calc(100vh - 100px);
 
   .cont-cast {
     width: 80%;

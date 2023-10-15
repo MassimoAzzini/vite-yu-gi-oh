@@ -15,9 +15,9 @@ export default {
   <div class="col-2 mb-3">
     <div class="card">
       <img :src="image" :alt="name">
-      <div class="description">
+      <div class="description d-flex flex-column">
         <div class="name-card">{{ name }}</div>
-        <div>{{ archetype }}</div>
+        <div class="archetype">{{ archetype }}</div>
       </div>
 
     </div>
@@ -39,9 +39,10 @@ export default {
       color: white;
       text-transform: uppercase;
       font-weight: bold;
-      margin-bottom: 40px;
       margin-top: 20px;
+      margin-bottom: 20px;
     }
+
   }
 }
 

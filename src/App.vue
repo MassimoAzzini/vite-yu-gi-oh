@@ -27,7 +27,7 @@ export default {
           num: this.numbercards,
           offset: 0,
           archetype: store.archetypeToSearch,
-          name: store.nameToSearch,
+          fname: store.nameToSearch,
         }
       })
       .then (res => {
