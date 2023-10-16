@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       store,
-      numbercards: 5000,
+      numbercards: 200,
     }
   },
 
@@ -34,6 +34,7 @@ export default {
         store.isLoad = false
 
         store.cardsList = res.data.data;
+        store.archetypeToSearch = null
 
       })
       .catch (err => {
@@ -74,7 +75,8 @@ export default {
 
   <div v-else>
     <Header />
-    <Main @startSearch="getApi" />
+    <Main
+      @startSearch="getApi" />
   </div>
 
 

@@ -12,8 +12,6 @@ export default {
       store
     }
   },
-
-  
 }
 </script>
 
@@ -26,7 +24,7 @@ export default {
         <div class="row">
           <div class="col-2 my-3">
             <select @change="$emit('startSearch')" v-model="store.archetypeToSearch" id="inputState" class="form-select" placeholder="Search Character">
-              <option selected value=""></option>
+              <option selected value="">Cerca Archetype</option>
               <option v-for="(archetype, index) in store.archetypeList" :key="index" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
             </select>
           </div>
